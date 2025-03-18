@@ -16,6 +16,6 @@ public class StateService {
     }
     public State readByStateId(Integer id) {
         return stateRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("Exeption" + id));
+                new RuntimeException("State not found" + id));
     }
 }

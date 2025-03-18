@@ -1,6 +1,5 @@
 package org.example.model;
 
-import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,10 +36,8 @@ public class Account {
     )
     @Column(name = "id",updatable = false, nullable = false)
     private UUID id;
-
     @Column(name = "external_id", nullable = false,length = 50)
     private String externalId;
-
     @Column(name = "client_id",nullable = false,length = 20)
     private String client_id;
     @Column(name = "name_account",nullable = false,length = 20)
@@ -61,7 +58,6 @@ public class Account {
     protected void onCreate() {
         created = new Date();
     }
-
     @Column(name = "updated_time")
     private Date updated;
     @PreUpdate
