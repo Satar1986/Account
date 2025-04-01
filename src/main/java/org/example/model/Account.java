@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.GenericGenerator;
+
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
+
 import java.util.Date;
 import java.util.UUID;
 @Entity
@@ -24,16 +26,7 @@ import java.util.UUID;
 public class Account {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(
-                            name = "uuid_gen_strategy_class",
-                            value = "org.hibernate.id.uuid.CCustomVersionOneStrategy"
-                    )
-            }
-    )
+    @UuidGenerator
     @Column(name = "id",updatable = false, nullable = false)
     private UUID id;
     @Column(name = "external_id", nullable = false,length = 50)
@@ -67,5 +60,4 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "state_id")
     private State state;
-
 }

@@ -2,7 +2,7 @@ package org.example.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.model.State;
 import org.example.service.StateService;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @Tag(name = "State")
 @RestController
 @RequestMapping("/states")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StateController {
     private StateService restService;
     @Operation(
