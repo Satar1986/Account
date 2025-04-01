@@ -5,12 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.event.ProductEvent;
 import org.example.event.EventRequisites;
 import org.example.model.Account;
-
-
 import org.springframework.stereotype.Service;
-
-
-
 
 @Slf4j
 @Service

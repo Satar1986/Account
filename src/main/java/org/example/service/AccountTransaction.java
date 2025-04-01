@@ -2,7 +2,6 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.model.Account;
-import org.example.model.State;
 import org.example.repository.EventRepository;
 import org.example.repository.StateRepository;
 import org.springframework.stereotype.Service;

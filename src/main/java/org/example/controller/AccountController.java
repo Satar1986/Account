@@ -2,9 +2,6 @@ package org.example.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
-
-
 import lombok.RequiredArgsConstructor;
 import org.example.model.Account;
 
@@ -31,7 +28,7 @@ summary = "Выводит список account "
     @Operation(
             summary = "Выводит список account по состоянию счета"
     )
-    @GetMapping("/state/{id}")
+    @GetMapping("/states/{id}")
     public ResponseEntity<List<Account>> readByStateId(@PathVariable Integer id) {
         return new ResponseEntity<>(accountTransaction.readByStateId(id),HttpStatus.OK);
     }
@@ -42,5 +39,4 @@ summary = "Выводит список account "
     public ResponseEntity<Account> getAccount(@PathVariable String id) {
      return new ResponseEntity<>(accountTransaction.readById(id),HttpStatus.OK);
     }
-
     }

@@ -1,6 +1,6 @@
 package org.example.service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.model.State;
 import org.example.repository.StateRepository;
 import org.springframework.stereotype.Service;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StateService {
-    private StateRepository stateRepository;
+    private final StateRepository stateRepository;
     public List<State> readAll() {
         return stateRepository.findAll();
     }

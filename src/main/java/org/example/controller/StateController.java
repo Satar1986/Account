@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @Tag(name = "State")
 @RestController
-@RequestMapping("/states")
+@RequestMapping("/state")
 @RequiredArgsConstructor
 public class StateController {
-    private StateService restService;
+    private final StateService stateService;
     @Operation(
             summary = "Выводит список состояния account"
     )
      @GetMapping
     public ResponseEntity<List<State>> readAll(){
-         return new ResponseEntity<>(restService.readAll(), HttpStatus.OK);
+         return new ResponseEntity<>(stateService.readAll(), HttpStatus.OK);
      }
      @Operation(
              summary = "Выводит состояние account по id"
      )
      @GetMapping("/{id}")
     public ResponseEntity<State> getState(@PathVariable Integer id){
-         return new ResponseEntity<>(restService.readByStateId(id),HttpStatus.OK);
+         return new ResponseEntity<>(stateService.readByStateId(id),HttpStatus.OK);
      }
 }

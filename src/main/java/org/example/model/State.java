@@ -3,11 +3,7 @@ package org.example.model;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-
 import jakarta.persistence.*;
-
-
-
 
 @Entity
 @DynamicInsert
