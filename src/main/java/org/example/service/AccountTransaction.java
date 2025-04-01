@@ -8,9 +8,9 @@ import org.example.repository.StateRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
-import static org.hibernate.criterion.Projections.id;
+
+
 
 @Service
 @RequiredArgsConstructor
