@@ -1,4 +1,4 @@
-package org.example.topic_config;
+package org.example.config;
 
 
 import org.apache.kafka.clients.admin.NewTopic;

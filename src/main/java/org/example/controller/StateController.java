@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.example.model.State;
 import org.example.service.StateService;
@@ -11,17 +13,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+@Tag(name = "State")
 @RestController
 @RequestMapping("/states")
 @AllArgsConstructor
 public class StateController {
     private StateService restService;
+    @Operation(
+            summary = "Выводит список состояния account"
+    )
      @GetMapping
     public ResponseEntity<List<State>> readAll(){
          return new ResponseEntity<>(restService.readAll(), HttpStatus.OK);
      }
-     @GetMapping("/states/{id}")
+     @Operation(
+             summary = "Выводит состояние account по id"
+     )
+     @GetMapping("/{id}")
     public ResponseEntity<State> getState(@PathVariable Integer id){
          return new ResponseEntity<>(restService.readByStateId(id),HttpStatus.OK);
      }

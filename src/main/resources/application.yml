@@ -1,5 +1,8 @@
 server:
   port: 8084
+springdoc:
+  swagger-ui:
+    path: "/account.html"
 spring:
   liquibase:
     enabled: true
