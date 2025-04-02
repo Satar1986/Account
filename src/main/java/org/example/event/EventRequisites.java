@@ -10,13 +10,13 @@ public class EventRequisites {
     private String externalId;
     private String client_id;
     private String name_company;
-    private long inn;
-    private int kpp;
-    private long ogrn;
+    private Long inn;
+    private Integer kpp;
+    private Long ogrn;
     private String business_address;
     private String address;
-    private int rcbic;
-    private float corr_ass;
-    private float ass;
+    private Integer rcbic;
+    private Double corr_ass;
+    private Double ass;
     private String bank_name;
 }
