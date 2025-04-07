@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-
-
 import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
@@ -32,19 +30,19 @@ public class Account {
     @Column(name = "external_id", nullable = false,length = 50)
     private String externalId;
     @Column(name = "client_id",nullable = false,length = 20)
-    private String client_id;
+    private String clientId;
     @Column(name = "name_account",nullable = false,length = 20)
-    private String name_account;
+    private String nameAccount;
     @Column(name = "sum")
     private Double sum;
     @Column(name = "currency",nullable = false,length = 20)
     private String currency;
     @Column(name = "interest_rate",nullable = false)
-    private Double interest_rate;
+    private Double interestRate;
     @Column(name = "interest_is_paid",nullable = false,length = 20)
-    private String interest_is_paid;
+    private String interestIsPaid;
     @Column(name = "min_remainder",nullable = false)
-    private Double min_remainder;
+    private Double minRemainder;
     @Column(name = "created_time")
     private Date created;
     @PrePersist

@@ -8,15 +8,16 @@ import lombok.*;
 @Builder
 public class EventRequisites {
     private String externalId;
-    private String client_id;
-    private String name_company;
+    private String clientId;
+    private String nameCompany;
     private Long inn;
     private Integer kpp;
     private Long ogrn;
-    private String business_address;
+    private String businessAddress;
     private String address;
     private Integer rcbic;
-    private Double corr_ass;
+    private Double corrAss;
     private Double ass;
-    private String bank_name;
+    private String bankName;
+    private Integer requisitesId;
 }

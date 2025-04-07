@@ -2,15 +2,9 @@ package org.example.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.example.event.ProductEvent;
-
-import org.example.model.Account;
-import org.example.repository.EventRepository;
-
 import org.example.service.AccountProcessService;
-import org.example.service.AccountTransaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;

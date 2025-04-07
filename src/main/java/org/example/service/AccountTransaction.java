@@ -5,7 +5,6 @@ import org.example.model.Account;
 import org.example.repository.EventRepository;
 import org.example.repository.StateRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
