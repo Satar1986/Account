@@ -28,6 +28,10 @@ spring:
           json:
             trusted:
               packages: "*"
+  task:
+    scheduling:
+      pool:
+        size: 5
   datasource:
     url: jdbc:postgresql://localhost:5432/account
     username: postgres

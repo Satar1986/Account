@@ -2,17 +2,25 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.event.AccountEvent;
 import org.example.event.ProductEvent;
 import org.example.event.EventRequisites;
 import org.example.model.Account;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Slf4j
 @Service
+@EnableAsync
 @RequiredArgsConstructor
 public class AccountProcessService {
     private final AccountTransaction accountTransaction;
     private final KafkaRequisitesProducer kafkaRequisitesProducer;
+    private final KafkaAccountProducer kafkaAccountProducer;
 
     public void processMessage(ProductEvent productEvent) {
         Account account = accountTransaction.readById(productEvent.getExternalId());
@@ -73,5 +81,27 @@ public class AccountProcessService {
                     build());
         }
     }
+@Async
+@Scheduled(cron = "0 0 16 8 * ?", zone = "Europe/Moscow")
+public void scheduledProcess() {
+    List<Account> list = accountTransaction.readAll();
+    list.stream().map(this::getEvent).forEach(sentEvent -> kafkaAccountProducer.send(sentEvent));
+}
+public AccountEvent getEvent(Account account) {
+        AccountEvent accountEvent = new AccountEvent();
+        accountEvent.setId(account.getId());
+        accountEvent.setExternalId(account.getExternalId());
+        accountEvent.setClientId(account.getClientId());
+        accountEvent.setNameAccount(account.getNameAccount());
+        accountEvent.setMinRemainder(account.getMinRemainder());
+        accountEvent.setInterestIsPaid(account.getInterestIsPaid());
+        accountEvent.setInterestRate(account.getInterestRate());
+        accountEvent.setInterestIsPaid(account.getInterestIsPaid());
+        accountEvent.setMinRemainder(account.getMinRemainder());
+        accountEvent.setSum(account.getSum());
+        accountEvent.setCreated(account.getCreated());
+        accountEvent.setUpdated(account.getUpdated());
+        return accountEvent;
+}
 }
 
