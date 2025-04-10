@@ -24,9 +24,9 @@ public class KafkaRequisitesProducer {
         record.headers().add("externalId",eventRequisites.getExternalId().getBytes());
         CompletableFuture<SendResult<String,EventRequisites>>future=
         kafkaTemplate.send(record);
-        future.whenComplete((result,exeption)->{
-            if(exeption!=null){
-                logger.error("Failed to send message: {}", exeption.getMessage());
+        future.whenComplete((result,exception)->{
+            if(exception!=null){
+                logger.error("Failed to send message: {}", exception.getMessage());
             }else{
                 logger.info("Successfully sent message: {}", result.getRecordMetadata());
             }
