@@ -22,7 +22,6 @@ public class AccountEvent {
     private Double interestRate;
     private String interestIsPaid;
     private Double minRemainder;
-    private Integer stateId;
     private Date created;
     private Date updated;
 }

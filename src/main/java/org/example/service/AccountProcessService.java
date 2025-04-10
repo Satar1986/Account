@@ -82,7 +82,7 @@ public class AccountProcessService {
         }
     }
 @Async
-@Scheduled(cron = "0 0 16 8 * ?", zone = "Europe/Moscow")
+@Scheduled(cron = "0 05 19 10 * ?", zone = "Europe/Moscow")
 public void scheduledProcess() {
     List<Account> list = accountTransaction.readAll();
     list.stream().map(this::getEvent).forEach(sentEvent -> kafkaAccountProducer.send(sentEvent));
@@ -96,8 +96,7 @@ public AccountEvent getEvent(Account account) {
         accountEvent.setMinRemainder(account.getMinRemainder());
         accountEvent.setInterestIsPaid(account.getInterestIsPaid());
         accountEvent.setInterestRate(account.getInterestRate());
-        accountEvent.setInterestIsPaid(account.getInterestIsPaid());
-        accountEvent.setMinRemainder(account.getMinRemainder());
+        accountEvent.setCurrency(account.getCurrency());
         accountEvent.setSum(account.getSum());
         accountEvent.setCreated(account.getCreated());
         accountEvent.setUpdated(account.getUpdated());

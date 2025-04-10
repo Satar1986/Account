@@ -16,4 +16,11 @@ public class TopicConfig {
                 .replicas(1)
                 .build();
     }
+    @Bean
+    public NewTopic createTopic2() {
+        return TopicBuilder.name("Account_archive").
+                partitions(1).
+                replicas(1).
+                build();
+    }
 }

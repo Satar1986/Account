@@ -12,7 +12,7 @@ public class KafkaAccountProducer {
     private final KafkaTemplate<String, AccountEvent> kafkaTemplate;
     public void send(AccountEvent accountEvent) {
         ProducerRecord<String, AccountEvent> record = new ProducerRecord<>(
-                "Account_requisites",
+                "Account_archive",
                 accountEvent.getExternalId(),
                 accountEvent
         );
