@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -26,8 +28,8 @@ public class ProductEvent {
     private String businessAddress;
     private String address;
     private Integer rcbic;
-    private Double corrAss;
-    private Double ass;
+    private BigDecimal corrAss;
+    private BigDecimal ass;
     private String bankName;
     private Integer requisitesId;
 }
